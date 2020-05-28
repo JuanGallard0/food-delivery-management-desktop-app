@@ -45,5 +45,48 @@ namespace SourceCode.Modelo
             
             Connection.realizarAccion(sql);
         }
+
+        public static List<FullOrder> consultOrders()
+        {
+            string sql = "SELECT * FROM apporder INNER JOIN address ON apporder.idaddress = address.idaddress INNER JOIN product ON apporder.idproduct = product.idproduct;";
+            
+            DataTable dt = Connection.realizarConsulta(sql);
+
+            List<FullOrder> list = new List<FullOrder>();
+            foreach (DataRow fila in dt.Rows)
+            {
+                FullOrder f = new FullOrder();
+                f.idorder = Convert.ToInt32(fila[0].ToString());
+                f.createdate = DateTime.Parse(fila[1].ToString());
+                f.idproduct = Convert.ToInt32(fila[2].ToString());
+                f.idaddress = Convert.ToInt32(fila[3].ToString());
+                f.iduser = Convert.ToInt32(fila[5].ToString());
+                f.address = fila[6].ToString();
+                f.idbusiness = Convert.ToInt32(fila[8].ToString());
+                f.name = fila[9].ToString();
+                
+
+                list.Add(f);
+            }
+            return list;
+        }
+        
+        public static List<Demand> getEstadisticas()
+        {
+            string sql = "SELECT business.name, count(*) as c FROM apporder INNER JOIN product ON product.idproduct = apporder.idproduct INNER JOIN business ON business.idbusiness = product.idbusiness group by business.name;";
+
+            DataTable dt = Connection.realizarConsulta(sql);
+
+            List<Demand> lista = new List<Demand>();
+            foreach (DataRow fila in dt.Rows)
+            {
+                Demand d = new Demand();
+                d.name = fila[0].ToString();
+                d.quantity = Convert.ToInt32(fila[1].ToString());
+
+                lista.Add(d);
+            }
+            return lista;
+        }
     }
 }

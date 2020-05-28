@@ -50,6 +50,7 @@ namespace SourceCode.Vista
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Indigo;
             this.tableLayoutPanel1.ColumnCount = 6;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.965754F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.50685F));
@@ -59,7 +60,7 @@ namespace SourceCode.Vista
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.938356F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnPwdChange, 3, 6);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnCancel, 4, 6);
             this.tableLayoutPanel1.Controls.Add(this.label1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtOld, 4, 2);
@@ -87,6 +88,7 @@ namespace SourceCode.Vista
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(224, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 57);
@@ -109,10 +111,12 @@ namespace SourceCode.Vista
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 117);
+            this.pictureBox1.Image = global::SourceCode.Properties.Resources.hugo;
+            this.pictureBox1.Location = new System.Drawing.Point(32, 60);
             this.pictureBox1.Name = "pictureBox1";
-            this.tableLayoutPanel1.SetRowSpan(this.pictureBox1, 4);
-            this.pictureBox1.Size = new System.Drawing.Size(178, 222);
+            this.tableLayoutPanel1.SetRowSpan(this.pictureBox1, 6);
+            this.pictureBox1.Size = new System.Drawing.Size(178, 336);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
@@ -133,11 +137,12 @@ namespace SourceCode.Vista
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(224, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(357, 57);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Password change";
+            this.label1.Text = "Change password";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtOld
@@ -145,24 +150,25 @@ namespace SourceCode.Vista
             this.txtOld.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtOld.Location = new System.Drawing.Point(376, 148);
             this.txtOld.Name = "txtOld";
+            this.txtOld.PasswordChar = '*';
             this.txtOld.Size = new System.Drawing.Size(181, 20);
             this.txtOld.TabIndex = 8;
-            this.txtOld.PasswordChar = '*';
             // 
             // txtNew
             // 
             this.txtNew.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtNew.Location = new System.Drawing.Point(376, 205);
             this.txtNew.Name = "txtNew";
+            this.txtNew.PasswordChar = '*';
             this.txtNew.Size = new System.Drawing.Size(181, 20);
             this.txtNew.TabIndex = 4;
-            this.txtNew.PasswordChar = '*';
             this.txtNew.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPasswordChange_KeyDown);
             // 
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(224, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 57);
@@ -174,6 +180,7 @@ namespace SourceCode.Vista
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(224, 228);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 57);
@@ -186,15 +193,16 @@ namespace SourceCode.Vista
             this.txtConfirm.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtConfirm.Location = new System.Drawing.Point(376, 262);
             this.txtConfirm.Name = "txtConfirm";
+            this.txtConfirm.PasswordChar = '*';
             this.txtConfirm.Size = new System.Drawing.Size(181, 20);
             this.txtConfirm.TabIndex = 10;
-            this.txtConfirm.PasswordChar = '*';
             // 
             // lblUser
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.lblUser, 2);
             this.lblUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUser.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
             this.lblUser.Location = new System.Drawing.Point(224, 57);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(333, 57);

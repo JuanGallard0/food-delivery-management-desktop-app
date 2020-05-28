@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SourceCode.Modelo;
+using LiveCharts;
+using LiveCharts.Wpf;
+using CartesianChart = LiveCharts.WinForms.CartesianChart;
 
 namespace SourceCode.Vista
 {
     public partial class FormMain : Form
     {
         private AppUser user;
+        private CartesianChart graficoDemanda;
         public FormMain(AppUser pUser)
         {
             InitializeComponent();
@@ -21,7 +25,12 @@ namespace SourceCode.Vista
             lblWelcome.Text =
                 "Welcome " + user.username + " [" + (user.userType ? "Administrator" : "Normal user") + "]";
             
-           updateAdminControls();
+            graficoDemanda = new CartesianChart();
+            this.Controls.Add(graficoDemanda);
+            graficoDemanda.Parent = tabControl1.TabPages[4];
+            configurarGrafico();
+            
+            updateAdminControls();
         }
 
 
@@ -33,12 +42,43 @@ namespace SourceCode.Vista
             ventana.ShowDialog();
             this.Close();
         }
+        
+        private void configurarGrafico()
+        {
+            graficoDemanda.Top = 10;
+            graficoDemanda.Left = 10;
+            graficoDemanda.Width = graficoDemanda.Parent.Width - 20;
+            graficoDemanda.Height = graficoDemanda.Parent.Height - 20;
+
+            graficoDemanda.Series = new SeriesCollection
+            {
+                new ColumnSeries{Title = "Business x Demand.", Values = new ChartValues<int>(), DataLabels = true}
+            };
+
+            graficoDemanda.AxisX.Add(new Axis{Labels = new List<string>()});
+            graficoDemanda.AxisX[0].Separator = new Separator() {Step = 1, IsEnabled = false};
+            graficoDemanda.LegendLocation = LegendLocation.Top;
+        }
+        
+        private void poblarGrafico()
+        {
+            graficoDemanda.Series[0].Values.Clear();
+            graficoDemanda.AxisX[0].Labels.Clear();
+          
+            foreach (Demand f in OrderDAO.getEstadisticas())
+            {
+                graficoDemanda.Series[0].Values.Add(f.quantity);
+                graficoDemanda.AxisX[0].Labels.Add(f.name);
+            }
+        }
 
         private void updateAdminControls()
         {
             List<AppUser> listU = AppUserDAO.getList();
             List<Business> listB = BusinessDAO.getList();
             List<Product> listP = ProductDAO.getList();
+            List<Order> ListO = OrderDAO.getList();
+            List<FullOrder> listf = OrderDAO.consultOrders();
             
             comboBox1.DataSource = null;
             comboBox1.DisplayMember = "username";
@@ -69,6 +109,11 @@ namespace SourceCode.Vista
 
             dataGridView3.DataSource = null;
             dataGridView3.DataSource = listP;
+
+            dataGridView4.DataSource = null;
+            dataGridView4.DataSource = listf;
+            
+            poblarGrafico();
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -210,5 +255,7 @@ namespace SourceCode.Vista
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
              }
         }
+        
+        
     }
 }

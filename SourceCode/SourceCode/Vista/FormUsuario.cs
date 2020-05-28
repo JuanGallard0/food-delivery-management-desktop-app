@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using SourceCode.Modelo;
 
+
 namespace SourceCode.Vista
 {
     public partial class FormUsuario : Form
     {
         private AppUser user;
+        
 
         public FormUsuario(AppUser pUser)
         {
@@ -24,6 +26,7 @@ namespace SourceCode.Vista
             updatePublicControls();
         }
 
+       
         private void updatePublicControls()
         {
             List<Address> listA = AddressDAO.getList(); 

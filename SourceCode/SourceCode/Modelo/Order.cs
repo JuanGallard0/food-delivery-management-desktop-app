@@ -2,7 +2,7 @@
 
 namespace SourceCode.Modelo
 {
-    public class Order
+    public class Order 
     {
         public int idorder { get; set; }
         public DateTime createdate { get; set; }
