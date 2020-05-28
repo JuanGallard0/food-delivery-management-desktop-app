@@ -1,0 +1,64 @@
+CREATE TABLE public.appuser
+(
+ 	idUser serial primary key,
+	fullname character varying(50) not null,
+	username character varying(50) not null unique,
+	password character varying(50) not null,
+	userType bool not null
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.appuser
+    OWNER to postgres;
+
+
+CREATE TABLE public.address
+(
+    idAddress serial primary key,
+	idUser int references appuser(idUser),
+	address character varying(50) not null
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.address
+    OWNER to postgres;
+
+CREATE TABLE public.business
+(
+    idBusiness serial primary key,
+	name character varying(50) not null,
+	description character varying(100) not null
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.business
+    OWNER to postgres;	
+
+CREATE TABLE public.product
+(
+    idProduct serial primary key,		
+	idBusiness int references business(idBusiness),
+	name character varying(50) not null
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.product
+    OWNER to postgres;
+
+CREATE TABLE public.apporder
+(
+    idOrder serial primary key,
+	createDate date not null,		
+	idProduct int  references product(idProduct),
+	idAddress int references address(idAddress)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.apporder
+    OWNER to postgres;
+	
