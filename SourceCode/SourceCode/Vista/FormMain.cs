@@ -77,7 +77,6 @@ namespace SourceCode.Vista
             List<AppUser> listU = AppUserDAO.getList();
             List<Business> listB = BusinessDAO.getList();
             List<Product> listP = ProductDAO.getList();
-            List<Order> ListO = OrderDAO.getList();
             List<FullOrder> listf = OrderDAO.consultOrders();
             
             comboBox1.DataSource = null;

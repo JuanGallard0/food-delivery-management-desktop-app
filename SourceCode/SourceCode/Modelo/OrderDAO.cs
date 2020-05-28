@@ -88,5 +88,27 @@ namespace SourceCode.Modelo
             }
             return lista;
         }
+        
+        public static List<Order> getUserList(int iduser)
+        {
+            string sql = String.Format(
+                "SELECT * FROM apporder INNER JOIN address ON apporder.idaddress = address.idaddress inner join appuser on appuser.iduser = address.iduser where appuser.iduser = '{0}';",
+                iduser);
+
+            DataTable dt = Connection.realizarConsulta(sql);
+
+            List<Order> list = new List<Order>();
+            foreach (DataRow fila in dt.Rows)
+            {
+                Order o = new Order();
+                o.idorder = Convert.ToInt32(fila[0].ToString());
+                o.createdate = DateTime.Parse(fila[1].ToString());
+                o.idproduct = Convert.ToInt32(fila[2].ToString());
+                o.idaddress = Convert.ToInt32(fila[3].ToString());
+
+                list.Add(o);
+            }
+            return list;
+        }
     }
 }

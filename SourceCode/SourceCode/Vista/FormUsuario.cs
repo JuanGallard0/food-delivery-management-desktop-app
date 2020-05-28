@@ -22,16 +22,16 @@ namespace SourceCode.Vista
         {
             lblWelcome.Text =
                 "Welcome " + user.username + " [" + (user.userType ? "Administrator" : "Normal user") + "]";
-
+            
             updatePublicControls();
         }
 
        
         private void updatePublicControls()
         {
-            List<Address> listA = AddressDAO.getList(); 
+            List<Address> listA = AddressDAO.getUserList(user.idUser); 
             List<Product> listP = ProductDAO.getList();
-            List<Order> listO = OrderDAO.getList();
+            List<Order> listO = OrderDAO.getUserList(user.idUser);
             
             comboBox1.DataSource = null;
             comboBox1.DisplayMember = "address";

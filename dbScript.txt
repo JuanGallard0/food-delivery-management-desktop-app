@@ -1,3 +1,15 @@
+--usuario insertado para facilitar utilización
+--username: 'admin'	password: 'admin'
+
+CREATE DATABASE "EP2"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
 CREATE TABLE public.appuser
 (
  	idUser serial primary key,
@@ -62,3 +74,5 @@ TABLESPACE pg_default;
 ALTER TABLE public.apporder
     OWNER to postgres;
 	
+INSERT INTO appuser (username, password, usertype, fullname)
+VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3', true, 'admin');

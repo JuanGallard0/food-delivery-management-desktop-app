@@ -277,7 +277,7 @@ namespace SourceCode.Vista
             // btnDeleteOrder
             // 
             this.btnDeleteOrder.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnDeleteOrder.Location = new System.Drawing.Point(65, 97);
+            this.btnDeleteOrder.Location = new System.Drawing.Point(56, 97);
             this.btnDeleteOrder.Name = "btnDeleteOrder";
             this.btnDeleteOrder.Size = new System.Drawing.Size(91, 44);
             this.btnDeleteOrder.TabIndex = 7;
@@ -292,14 +292,14 @@ namespace SourceCode.Vista
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(103, 28);
             this.label15.TabIndex = 3;
-            this.label15.Text = "Product name:";
+            this.label15.Text = "Product ID:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox8
             // 
             this.comboBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(104, 40);
+            this.comboBox8.Location = new System.Drawing.Point(94, 43);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(94, 21);
             this.comboBox8.TabIndex = 9;
