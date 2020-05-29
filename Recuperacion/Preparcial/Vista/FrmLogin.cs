@@ -29,7 +29,10 @@ namespace Preparcial
         private void PoblarControlers()
         {
             cmbUser.DataSource = null;
-            cmbUser.ValueMember = "Contrasenia";
+            
+            //Correccion: error de redaccion en "Contrasena"
+            cmbUser.ValueMember = "Contrasena";
+            
             cmbUser.DisplayMember = "NombreUsuario";
             cmbUser.DataSource = ControladorUsuario.GetUsuarios();
         }
