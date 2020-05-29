@@ -1,0 +1,27 @@
+CREATE TABLE USUARIO(
+	idUsuario SERIAL PRIMARY KEY,
+	nombre VARCHAR(50) NOT NULL,
+	contrasenia VARCHAR(20) NOT NULL,
+	tipo BOOLEAN NOT NULL
+);
+
+CREATE TABLE INVENTARIO(
+	idArticulo SERIAL PRIMARY KEY,
+	nombreArt VARCHAR(50) NOT NULL,
+	descripcion TEXT NOT NULL,
+	precio MONEY NOT NULL,
+	stock INT NOT NULL
+);
+
+CREATE TABLE PEDIDO(
+	idPedido SERIAL PRIMARY KEY,
+	idUsuario INT NOT NULL,
+	idArticulo INT NOT NULL,
+	cantidad INT NOT NULL,
+	CONSTRAINT fk_usuario_pedido 
+	FOREIGN KEY (idUsuario) REFERENCES USUARIO(idUsuario),
+	CONSTRAINT fk_articulo_pedido
+	FOREIGN KEY (idArticulo) REFERENCES INVENTARIO(idArticulo)
+);
+
+INSERT INTO USUARIO(nombre, contrasenia, tipo) VALUES ('Walter', 'admin', true)
