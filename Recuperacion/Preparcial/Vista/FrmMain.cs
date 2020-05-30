@@ -43,8 +43,11 @@ namespace Preparcial.Vista
         private void ActualizarOrdenesUsuario()
         {
             dgvMyOrders.DataSource = ControladorPedido.GetPedidosUsuarioTable(u.IdUsuario);
-            cmbProductMakeOrder.ValueMember = "idarticulo";
+            cmbProductMakeOrder.ValueMember = "idArticulo";
+            
+            //Correccion: error de redacción en "producto"
             cmbProductMakeOrder.DisplayMember = "producto";
+            
             cmbProductMakeOrder.DataSource = ControladorInventario.GetProductos();
         }
 
@@ -99,7 +102,11 @@ namespace Preparcial.Vista
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab.Name.Equals("createNewUserTab") && u.Admin)
+            //Correccion: no hacer nada si admin o usuario selecciona ventana general
+            if (tabControl1.SelectedTab.Name.Equals("generalTab"))
+                return;
+            
+            else if (tabControl1.SelectedTab.Name.Equals("createNewUserTab") && u.Admin)
                 ActualizarCrearUsuario();
 
             else if (tabControl1.SelectedTab.Name.Equals("inventaryTab") && u.Admin)
@@ -110,7 +117,7 @@ namespace Preparcial.Vista
 
             else if (tabControl1.SelectedTab.Name.Equals("viewOrdersTab") && u.Admin)
                 ActualizarOrdenes();
-            
+
             else
             {
                 MessageBox.Show("No tiene permisos para ver esta pestana");
@@ -121,7 +128,7 @@ namespace Preparcial.Vista
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-    Application.Exit();
+            Application.Exit();
         }
     }
 }

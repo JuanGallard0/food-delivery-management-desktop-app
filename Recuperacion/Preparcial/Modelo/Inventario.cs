@@ -8,11 +8,12 @@ namespace Preparcial.Modelo
 {
     public class Inventario
     {
-        string idArticulo { get; }
-        string producto { get; }
-        string descripcion { get; }
-        string precio { get; }
-        string stock { get; }
+        //Correccion: hacer publicos los atributos de inventario
+        public string idArticulo { get; }
+        public string producto { get; }
+        public string descripcion { get; }
+        public string precio { get; }
+        public string stock { get; }
 
         public Inventario(string idArticulo, string producto, string descripcion, string precio, string stock)
         {

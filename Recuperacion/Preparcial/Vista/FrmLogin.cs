@@ -30,7 +30,7 @@ namespace Preparcial
         {
             cmbUser.DataSource = null;
             
-            //Correccion: error de redaccion en "Contrasena"
+            //Correccion: error de redacción en "Contrasena"
             cmbUser.ValueMember = "Contrasena";
             
             cmbUser.DisplayMember = "NombreUsuario";
@@ -58,7 +58,12 @@ namespace Preparcial
         private void BttnUpdatePassword_Click(object sender, EventArgs e)
         {
             FrmPassword frmPassword = new FrmPassword();
-            frmPassword.Show();
+            
+            //Correccion: mostrar FrmPassword como cuadro de diálogo  
+            frmPassword.ShowDialog();
+            
+            //Correccion: actualizar controles después de cambiar contrasena
+            PoblarControlers();
         }
     }
 }

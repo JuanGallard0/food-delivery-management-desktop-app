@@ -41,7 +41,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(43, 50);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(116, 126);
             this.pictureBox1.TabIndex = 0;
@@ -52,7 +52,7 @@
             this.cmbUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUser.FormattingEnabled = true;
             this.cmbUser.Location = new System.Drawing.Point(232, 66);
-            this.cmbUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbUser.Margin = new System.Windows.Forms.Padding(2);
             this.cmbUser.Name = "cmbUser";
             this.cmbUser.Size = new System.Drawing.Size(141, 21);
             this.cmbUser.TabIndex = 1;
@@ -60,7 +60,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(233, 158);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(140, 20);
@@ -89,7 +89,7 @@
             // bttnLogin
             // 
             this.bttnLogin.Location = new System.Drawing.Point(428, 50);
-            this.bttnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bttnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.bttnLogin.Name = "bttnLogin";
             this.bttnLogin.Size = new System.Drawing.Size(80, 36);
             this.bttnLogin.TabIndex = 4;
@@ -100,7 +100,7 @@
             // bttnUpdatePassword
             // 
             this.bttnUpdatePassword.Location = new System.Drawing.Point(428, 140);
-            this.bttnUpdatePassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bttnUpdatePassword.Margin = new System.Windows.Forms.Padding(2);
             this.bttnUpdatePassword.Name = "bttnUpdatePassword";
             this.bttnUpdatePassword.Size = new System.Drawing.Size(80, 36);
             this.bttnUpdatePassword.TabIndex = 4;
@@ -120,7 +120,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cmbUser);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogin";
             this.Text = "Bienvenido";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
